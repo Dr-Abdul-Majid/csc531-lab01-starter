@@ -1,0 +1,82 @@
+# CSC-531 — Lab 01: Arrays, Address Calculations and Safe Insertion/Deletion
+
+**Course:** CSC-531 Data Structures & Algorithms  
+**Language:** C++17  
+**Submission:** Individual programming laboratory  
+**Source:** CSC-531 Student Laboratory Manual, Lab 01 (Week 01; Lectures 00–01)
+
+## Learning goals
+
+1. Distinguish an array's allocated capacity from its active logical size.
+2. Calculate element locations for 1D and row-major 2D arrays.
+3. Implement and test safe insertion and deletion in a fixed-capacity integer array.
+
+## Assessed work
+
+### Task A — Array representation and address worksheet
+
+In `REPORT.md`, draw an indexed **8-slot array** with **logical size 4**. Identify active elements, unused slots and the next append position.
+
+Using hypothetical addresses, calculate **A[0], A[3], and A[7]** when `B = 4000` and `w = 4`. For row-major `M[4][5]`, calculate **M[2][3]** for `B = 2000` and `w = 4`, and explain the offset.
+
+These are conceptual address calculations; do not assume `sizeof(int) == 4` on every platform.
+
+### Task B — Safe array functions
+
+Implement the function contracts declared in `lab01.hpp`, in **your own code** inside `lab01.cpp`:
+
+```cpp
+bool insertAt(int a[], int& size, int cap, int pos, int x);
+bool deleteAt(int a[], int& size, int pos);
+```
+
+- `insertAt`: reject invalid positions and full arrays; otherwise shift elements right, insert the value and increase logical size.
+- `deleteAt`: reject invalid indices; otherwise shift elements left, decrease logical size and never read beyond the final active element.
+- On a failed operation, **do not modify either logical size or array contents**.
+- Do not substitute `std::vector`, `std::list`, or ready-made STL insertion/deletion algorithms for the assessed fixed-array implementation.
+
+### Task C — Integrated menu and demonstrations
+
+Complete `main.cpp` with a menu for **display, insert, delete and exit**. Keep `size` separate from `CAP`. Demonstrate insertion when the array is full and deletion when the array is empty, plus correct normal cases.
+
+### Trace, tests and analysis
+
+Complete `REPORT.md` with an annotated step-by-step trace, a test table (expected vs. actual output), worst-case time and auxiliary-space complexity for each function, one bug fixed and answers to the three reflection questions in the manual.
+
+## Files to submit
+
+Keep all of these in your individual Classroom 50 repository:
+
+- `lab01.hpp` — the required function declarations (do not change signatures).
+- `lab01.cpp` — your insertion and deletion implementations.
+- `main.cpp` — your completed menu demonstration.
+- `REPORT.md` — array/address worksheet, trace, tests, complexity and reflection.
+
+This is the documented **multi-file folder** submission permitted by the lab manual. You do not need to rename source files to `CSC531_Lab01_RollNo_Name.cpp`; your private assignment repository links your work to your Classroom 50 roster. Enter your roll number in `REPORT.md`.
+
+## Build and run locally
+
+From VS Code Terminal, or any shell with `g++`:
+
+```sh
+g++ -std=c++17 -Wall -Wextra -pedantic main.cpp lab01.cpp -o main
+./main
+```
+
+On Windows, if the compiler produces `main.exe`, run `main.exe` or `.\main.exe` depending on the terminal.
+
+**Important:** Successful compilation does **not** prove correctness. Test valid operations, invalid positions, full capacity, empty lists and repeated updates.
+
+## Grading and feedback
+
+- **65 points automated:** correct array operations and boundary tests.
+- **35 points instructor review:** worksheet/traces/complexity (20), code quality/menu and reproducibility (10), reflection/individual explanation (5).
+- A complete final mark is not the same as the automated score; the instructor combines both parts after review.
+
+Automated checks use the exact function signatures above. Your menu is still assessed manually, even if a code build check passes.
+
+## Submission policy
+
+Follow your teacher's Classroom 50 assignment instructions. If the assignment is configured for **tagged submission**, a normal push saves work but does not grade it. In that case, submit with the `gh student submit` command or a `submit/*` Git tag, and verify that a scoring run appears. Do not use GitHub's **Create release** button to submit.
+
+Complete original work, disclose external/AI assistance according to course instructions, and be ready for an individual code walkthrough.
