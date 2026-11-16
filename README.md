@@ -87,11 +87,25 @@ On Windows, if the compiler produces `main.exe`, run `main.exe` or `.\main.exe` 
 
 ## Grading and feedback
 
-- **65 points automated:** correct array operations and boundary tests.
-- **35 points instructor review:** worksheet/traces/complexity (20), code quality/menu and reproducibility (10), reflection/individual explanation (5).
-- A complete final mark is not the same as the automated score; the instructor combines both parts after review.
+**Lab 01 maximum: 10 marks = 6.5 automated + 3.5 instructor-assessed.**
 
-Automated checks use the exact function signatures above. Your menu is still assessed manually, even if a code build check passes.
+| Component | Marks toward final /10 | How assessed |
+|---|---:|---|
+| Automated C++17 build, insertion/deletion correctness, and boundary cases | 6.5 | GitHub Actions / Classroom 50 |
+| REPORT.md: array diagram, memory-address calculations, traces, test evidence, and complexity | 2.0 | Instructor review |
+| Code readability, four-option interactive menu, input handling, and demonstration | 1.0 | Instructor review |
+| Reflection, bug explanation, and individual viva | 0.5 | Instructor review |
+| **TOTAL** | **10.0** | Combined by instructor |
+
+**Technical scoring note:** Classroom 50's built-in test scores are whole numbers, so the automated test report still shows a maximum of **65 internal points**. Divide the displayed score by 10 to obtain marks out of 6.5:
+
+- 65/65 internally = **6.5/6.5 automated marks**.
+- 52/65 internally = **5.2/6.5 automated marks**.
+- Final grade out of 10 = **(automated score / 10) + instructor-assessed marks out of 3.5**.
+
+The teacher records the 3.5 instructor marks separately and combines them with the converted automated score. Do **not** use Classroom 50's manual score override to add the manual marks: an override **replaces**, rather than adds to, the automatic result.
+
+The automatic checks assess the required `insertAt()` and `deleteAt()` functions and compilation. The interactive menu and written work are evaluated by the instructor.
 
 ## Submission policy
 
