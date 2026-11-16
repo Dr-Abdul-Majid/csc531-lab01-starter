@@ -54,6 +54,24 @@ Keep all of these in your individual Classroom 50 repository:
 
 This is the documented **multi-file folder** submission permitted by the lab manual. You do not need to rename source files to `CSC531_Lab01_RollNo_Name.cpp`; your private assignment repository links your work to your Classroom 50 roster. Enter your roll number in `REPORT.md`.
 
+## Submit from GitHub Codespaces — easiest method
+
+1. Accept the assignment using the instructor's **Lab 01 invitation link** (not just the organization/classroom invite).
+2. Open **your own** GitHub assignment repository. Click **Code → Codespaces → Create codespace on main** (or reopen your existing Codespace).
+3. Edit and save **lab01.cpp**, **main.cpp**, and **REPORT.md**. Keep the header declarations in **lab01.hpp** unchanged.
+4. Check your program using the build/run commands below.
+5. Open **Terminal → New Terminal** and run **one command**:
+
+```bash
+bash submit.sh
+```
+
+   Alternatively, in Codespaces use **Terminal → Run Task → Submit Lab 01**. The task and command do the same thing.
+
+The submission helper automatically stages the three assignment files, commits changed work, pushes the `main` branch to GitHub, creates a unique `submit/*` tag, and pushes that tag to trigger Classroom 50's autograder. You do **not** need to type Git add/commit/push/tag commands separately. Confirm that it prints **SUBMISSION SENT**, then check the repository's **Actions** tab and **Releases** page for scores and feedback.
+
+**Important:** Saving a file inside Codespaces is not a submission. The assignment is submitted only after you run `bash submit.sh` (or the Submit Lab 01 task) and it completes without errors. If the script reports an error, fix it and try again. It submits only the three named student files; ask the instructor before adding extra files or figures.
+
 ## Build and run locally
 
 From VS Code Terminal, or any shell with `g++`:
